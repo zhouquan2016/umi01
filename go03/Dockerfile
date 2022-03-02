@@ -5,7 +5,7 @@ WORKDIR /var/godemo
 ENV GIN_MODE=release
 ENV GODEMO_CONFIG=/etc/godemo/
 EXPOSE 8080
-COPY main /var/godemo/
+COPY go03 /var/godemo/
 COPY config.json /var/godemo/
 COPY es.crt /var/godemo/
-ENTRYPOINT ["/var/godemo/main"]
+ENTRYPOINT ["/var/godemo/go03"]

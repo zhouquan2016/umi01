@@ -1,5 +1,5 @@
 go_build() {
-    go build ./go03/main.go
+    go build ./go03/go03.go
 }
 
 docker_build() {
