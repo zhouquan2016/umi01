@@ -1,0 +1,12 @@
+{
+  "datasource": {
+    "host": "zhqn.com",
+    "port": 3306,
+    "username": "demo",
+    "password": "demo",
+    "database": "demo",
+    "type": "mysql",
+    "query": "charset=utf8&parseTime=true&loc=Local"
+  },
+  "jwt_secret": "05e6223a639440dda04f1558271d03ed"
+}
