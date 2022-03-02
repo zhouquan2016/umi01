@@ -1,6 +1,6 @@
 {
   "datasource": {
-    "host": "zhqn.com",
+    "host": "db.zhqn.com",
     "port": 3306,
     "username": "demo",
     "password": "demo",

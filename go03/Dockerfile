@@ -6,6 +6,6 @@ ENV GIN_MODE=release
 ENV GODEMO_CONFIG=/etc/godemo/
 EXPOSE 8080
 COPY go03 /var/godemo/
-COPY config.json /var/godemo/
-COPY es.crt /var/godemo/
+COPY /opt/config.json /var/godemo/
+COPY /opt/es.crt /var/godemo/
 ENTRYPOINT ["/var/godemo/go03"]
