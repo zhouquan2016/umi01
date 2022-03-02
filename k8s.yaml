@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: umi-backend
+spec:
+  selector:
+    app: umi-backend
+  ports:
+    - port: 8080
+  type: NodePort
+  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: umi-backend
+  labels:
+    app: umi-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: umi-backend
+      labels:
+        app: umi-backend
+    spec:
+      containers:
+        - name: umi-backend
+          image: zhqn.com:5000/umi-backend:1.0.0
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: umi-backend
