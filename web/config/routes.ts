@@ -41,7 +41,7 @@
       {
         path: "/admin/role",
         name:"admin.role",
-        component: "./Role"
+        component: "./role"
       },
       {
         path: "/admin/user",
