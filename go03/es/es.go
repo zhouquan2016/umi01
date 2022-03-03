@@ -6,18 +6,20 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/elastic/go-elasticsearch/v8"
+	"go03/conf"
 	"go03/db"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"path"
 	"time"
 )
 
 var EsClient *elasticsearch.Client
 
 func init() {
-	f, err := os.Open("es.crt")
+	f, err := os.Open(path.Join(conf.Path, "es.crt"))
 	if err != nil {
 		panic(err)
 	}
@@ -25,10 +27,11 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+	config := conf.GetConfig()
 	EsClient, err = elasticsearch.NewClient(elasticsearch.Config{
-		Addresses: []string{"https://192.168.48.136:9200"},
-		Username:  "elastic",
-		Password:  "03IqwLYMws3NSwj6Wp0d",
+		Addresses: config.Elasticsearch.Addresses,
+		Username:  config.Elasticsearch.Username,
+		Password:  config.Elasticsearch.Password,
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost:   10,
 			ResponseHeaderTimeout: time.Second,

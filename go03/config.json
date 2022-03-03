@@ -8,5 +8,10 @@
     "type": "mysql",
     "query": "charset=utf8&parseTime=true&loc=Local"
   },
-  "jwt_secret": "05e6223a639440dda04f1558271d03ed"
+  "jwt_secret": "05e6223a639440dda04f1558271d03ed",
+  "elasticsearch": {
+    "addresses": "https://zhqn.com:9200",
+    "username": "elastic",
+    "password": "03IqwLYMws3NSwj6Wp0d"
+  }
 }

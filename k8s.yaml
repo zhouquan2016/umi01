@@ -27,8 +27,17 @@ spec:
       containers:
         - name: umi-backend
           image: zhqn.com:5000/umi-backend:1.0.0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /var/godemo/config.json
+              name: configFile
+            - mountPath: /etc/go03/
+              name: esCrtFile
       restartPolicy: Always
+      volumes:
+        - name: configFile
+          configMap:
+            name: umi-backend-config
   selector:
     matchLabels:
       app: umi-backend
