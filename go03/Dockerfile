@@ -8,4 +8,4 @@ EXPOSE 8080
 COPY go03 /var/go03/
 COPY config.json /etc/go03/
 COPY es.crt /etc/go03/
-ENTRYPOINT ["/var/godemo/go03", "-config=", "/etc/go03/"]
+ENTRYPOINT ["/var/go03", "-config=", "/etc/go03/"]
