@@ -17,6 +17,7 @@ var db *gorm.DB
 func init() {
 	ds := conf.GetConfig().Datasource
 	dbDSN := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?%s", *ds.Username, *ds.Password, *ds.Host, *ds.Port, *ds.Database, *ds.Query)
+	log.Println("dsn:", dbDSN)
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer（日志输出的目标，前缀和日志包含的内容——译者注）
 		logger.Config{
