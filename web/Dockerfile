@@ -1,11 +1,5 @@
-FROM centos:centos8.4.2105
+FROM nginx:1.21.6
 MAINTAINER zhqn
-RUN mkdir /var/godemo /etc/godemo
-WORKDIR /var/godemo
-ENV GIN_MODE=release
-ENV GODEMO_CONFIG=/etc/godemo/
 EXPOSE 8080
-COPY main /var/godemo/
-COPY config.json /var/godemo/
-COPY es.crt /var/godemo/
+COPY public /usr/share/nginx/html
 ENTRYPOINT ["/var/godemo/main"]
