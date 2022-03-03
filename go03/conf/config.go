@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"io/ioutil"
+	"log"
 	"os"
 	"path"
 )
@@ -27,7 +28,12 @@ type Config struct {
 	} `json:"elasticsearch"`
 }
 
-var Path = *flag.String("config", "", "")
+var Path string
+
+func init() {
+	flag.StringVar(&Path, "config", "", "")
+	flag.Parse()
+}
 
 var config Config
 
@@ -36,6 +42,7 @@ func GetConfig() Config {
 }
 
 func init() {
+	log.Println("config path", Path)
 	f, err := os.Open(path.Join(Path, "config.json"))
 	if err != nil {
 		panic(err)
