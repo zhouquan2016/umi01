@@ -28,6 +28,7 @@ func init() {
 		panic(err)
 	}
 	config := conf.GetConfig()
+	log.Println("elasticsearch addresses:", config.Elasticsearch.Addresses)
 	EsClient, err = elasticsearch.NewClient(elasticsearch.Config{
 		Addresses: config.Elasticsearch.Addresses,
 		Username:  config.Elasticsearch.Username,
@@ -46,6 +47,13 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+	//res, err := EsClient.Ping()
+	//if err != nil {
+	//	panic(err)
+	//}
+	//if res.IsError() {
+	//	panic(res.Status())
+	//}
 }
 
 func IndexBatch(index string, identifies []db.Identify) {

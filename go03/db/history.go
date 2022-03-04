@@ -61,9 +61,6 @@ func (dao historyDao) List(query *HistoryListQuery) *conf.PageResult {
 	return conf.NewPageResult(query.Current, total, hs)
 }
 
-func (dao historyDao) FindAllByStream(exeFunc func(history History)) {
-}
-
 func (dao historyDao) MaxId() (id uint) {
 	err := db.Model(&History{}).Select("id").Order("id desc").Limit(1).Scan(&id).Error
 	if err != nil {

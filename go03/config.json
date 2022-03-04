@@ -10,7 +10,7 @@
   },
   "jwt_secret": "05e6223a639440dda04f1558271d03ed",
   "elasticsearch": {
-    "addresses": "https://zhqn.com:9200",
+    "addresses": ["https://192.168.48.136:9200"],
     "username": "elastic",
     "password": "03IqwLYMws3NSwj6Wp0d"
   }
